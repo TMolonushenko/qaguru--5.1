@@ -10,16 +10,18 @@ import static com.codeborne.selenide.Selenide.actions;
 public class PageObjects {
     SelenideElement boxA = $("#column-a");
     SelenideElement boxB = $("#column-b");
-    SelenideElement checkBox = $("#columns");
+    // SelenideElement checkBox = $("#columns");
 
     public void drapAndDrop() {
-        (boxA).dragAndDropTo(boxB);
+        boxA.dragAndDropTo(boxB);
         // actions().moveToElement(boxA).clickAndHold().moveToElement(boxB).release().perform();
         // actions().moveToElement($("#column-a")).clickAndHold().moveToElement($("#column-b")).release().perform();
         //  actions().moveToElement($("#column-a")).clickAndHold().moveByOffset(175, 0).release().perform();
     }
 
-    public void checkBox(){
-checkBox.$("header").shouldHave(text("B")).click();
+    public void checkBox() {
+        boxA.shouldHave(text("B"));
+        boxB.shouldHave(text("A"));
+        // checkBox.$("header").shouldHave(text("B")).click();
     }
 }
